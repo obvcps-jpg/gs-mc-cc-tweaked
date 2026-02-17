@@ -1,7 +1,7 @@
 -- ComputerCraft: Tweaked Bootloader
 -- Downloads and installs programs, then sets up autoupdate in startup
 
-local REPO_URL = "https://raw.githubusercontent.com/your-username/your-repo/main"
+local REPO_URL = "https://raw.githubusercontent.com/obvcps-jpg/gs-mc-cc-tweaked/refs/heads/main"
 
 local function downloadFile(url, filepath)
   print("Downloading: " .. filepath)
