@@ -1,2 +1,1 @@
-print("printing from main.lua")
-write("Test")
+print("updated main.lua from autoupdater")
