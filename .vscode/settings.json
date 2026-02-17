@@ -1,0 +1,14 @@
+{
+  "Lua.runtime.version": "Lua 5.1",
+  "Lua.workspace.library": [
+    "${workspaceFolder}/.vscode/lua_library"
+  ],
+  "Lua.workspace.checkThirdParty": false,
+  "Lua.diagnostics.disable": [],
+  "Lua.diagnostics.globals": [
+    "print", "fs", "http", "turtle", "term", "os", "io",
+    "rednet", "peripheral", "pocket", "paintutils", "textutils",
+    "colors", "sleep", "shell", "coroutine", "table", "string",
+    "math", "debug", "loadstring", "load", "dofile", "loadfile"
+  ]
+}
