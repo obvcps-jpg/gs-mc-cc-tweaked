@@ -29,8 +29,8 @@ end
 
 local function loadPrograms()
   local programs = {}
-  if fs.exists("programs.txt") then
-    local file = fs.open("programs.txt", "r")
+  if fs.exists("/alexCC/programs.txt") then
+    local file = fs.open("/alexCC/programs.txt", "r")
     local line = file.readLine()
     while line do
       line = line:gsub("^%s+|%s+$", "") -- trim whitespace
@@ -46,7 +46,7 @@ end
 
 -- Download programs.txt from repository
 local programs_url = REPO_URL .. "/programs.txt"
-if not downloadFile(programs_url, "programs.txt") then
+if not downloadFile(programs_url, "/alexCC/programs.txt") then
   print("Error: Could not download programs.txt")
   print("Make sure you're running from the home directory, not /rom/")
   return
