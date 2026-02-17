@@ -164,7 +164,7 @@ setupStartupAutoupdater()
 -- setup main runner
 setupAutoMainRunner()
 
-commands.exec("reboot")
+exec("reboot")
 
 print("=== Setup Complete ===")
 print("Reboot to start autoupdater")
