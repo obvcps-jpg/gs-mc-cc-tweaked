@@ -73,8 +73,8 @@ end
 
 local function loadPrograms()
   local programs = {}
-  if fs.exists("rom/alexCC/programs.txt") then
-    local file = fs.open("rom/alexCC/programs.txt", "r")
+  if fs.exists("/rom/alexCC/programs.txt") then
+    local file = fs.open("/rom/alexCC/programs.txt", "r")
     local line = file.readLine()
     while line do
       line = line:gsub("^%s+|%s+$", "") -- trim whitespace
@@ -89,8 +89,8 @@ local function loadPrograms()
 end
 
 -- Download programs.txt from repository
-local programs_url = REPO_URL .. "rom/alexCC/programs.txt"
-if not downloadFile(programs_url, "rom/alexCC/programs.txt") then
+local programs_url = REPO_URL .. "/rom/alexCC/programs.txt"
+if not downloadFile(programs_url, "/rom/alexCC/programs.txt") then
   print("Warning: Failed to download programs.txt")
 end
 
@@ -120,7 +120,7 @@ end
 local function setupAutoMainRunner()
     local mainrunner_code = [[-- Alex Main-Runner startup script
 -- Automatically runs main.lua on boot
-  run("rom/alexCC/main.lua")
+  run("/rom/alexCC/main.lua")
 ]]
   local startup_file = fs.open("startup/01_mainrunner.lua", "w")
   startup_file.write(mainrunner_code)
@@ -133,20 +133,23 @@ end
 print("=== ComputerCraft: Tweaked Alex API Bootloader ===")
 print("Starting setup...")
 
-ensureDirectory("rom/alexCC") -- Create directory for Alex API
+ensureDirectory("/rom/alexCC") -- Create directory for Alex API
 
 -- Download programs.txt from repository
 local programs_url = REPO_URL .. "/programs.txt"
-downloadFile(programs_url, "rom/alexCC/programs.txt")
+downloadFile(programs_url, "/rom/alexCC/programs.txt")
 
 -- Download all programs
 for _, program in ipairs(PROGRAMS) do
   local url = REPO_URL .. "/" .. program
-  downloadFile(url, "rom/alexCC/" .. program)
+  downloadFile(url, "/rom/alexCC/" .. program)
 end
 
 -- Setup autoupdater
 setupStartupAutoupdater()
+
+-- setup main runner
+setupAutoMainRunner()
 
 print("=== Setup Complete ===")
 print("Reboot to start autoupdater")
