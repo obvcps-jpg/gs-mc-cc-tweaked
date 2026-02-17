@@ -113,7 +113,7 @@ local PROGRAMS = loadPrograms()
 local updated = false
 for _, program in ipairs(PROGRAMS) do
   local url = REPO_URL .. "/" .. program
-  if downloadFile(url, program) then
+  if downloadFile(url, "/alexCC/" .. program) then
     updated = true
   end
 end
