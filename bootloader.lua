@@ -133,7 +133,7 @@ end
 local function setupAutoMainRunner()
     local mainrunner_code = [[-- Alex Main-Runner startup script
 -- Automatically runs main.lua on boot
-  run("/alexCC/main.lua")
+commands.exec("/alexCC/main.lua")
 ]]
   local startup_file = fs.open("startup/01_mainrunner.lua", "w")
   startup_file.write(mainrunner_code)
@@ -163,6 +163,8 @@ setupStartupAutoupdater()
 
 -- setup main runner
 setupAutoMainRunner()
+
+commands.exec("reboot")
 
 print("=== Setup Complete ===")
 print("Reboot to start autoupdater")
