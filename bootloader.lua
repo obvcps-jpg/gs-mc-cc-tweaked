@@ -102,7 +102,8 @@ local function loadPrograms()
 end
 
 -- Download programs.txt from repository
-local programs_url = REPO_URL .. "/alexCC/programs.txt"
+fs.delete("/alexCC/programs.txt")
+local programs_url = REPO_URL .. "/programs.txt"
 if not downloadFile(programs_url, "/alexCC/programs.txt") then
   print("Warning: Failed to download programs.txt")
 end
